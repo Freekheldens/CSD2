@@ -1,7 +1,7 @@
-username = input("please enter your name: ")
-age = int (input("please enter your age: "))
+username = input("Please enter your name: ")
+age = int (input("Please enter your age: "))
 
 if age < 18:
-  print("sorry you are to young :(")
+  print("Sorry you are to young :(")
 else:
-  print("hello " + username)
+  print("Hello " + username + "!")
