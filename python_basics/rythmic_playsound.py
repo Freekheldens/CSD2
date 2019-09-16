@@ -12,11 +12,7 @@ for times in range(play_times):                                                 
     list_rythm_values.append(rythm_values)
 
 bpm = input("Please enter a BPM: ")
-if(bpm.isdigit()):
-    bpm = (60000/float(bpm))                                                                                    #rekent bpm om naar milliseconde
-else:
-    print("Please enter a number!")
-    exit()
+bpm = (60000/float(bpm))                                                                                        #rekent bpm om naar milliseconde
 
 for rythms in list_rythm_values:                                                                                #loop die de sample afspeelt met de delay's
     rythms = float(rythms)
