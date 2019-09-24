@@ -2,7 +2,7 @@ import simpleaudio as sa
 import time
 
 #path to sample
-wave_obj = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/RS01.wav")
+wave_obj = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/rs01.wav")
 
 #lists that are used later
 durations_list = [1, 1, 0.5, 0.5, 1, 1, 0.25, 0.25]
