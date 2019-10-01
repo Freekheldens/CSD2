@@ -5,7 +5,7 @@ import time
 wave_obj = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/rs01.wav")
 
 #lists that are used later
-durations_list = [1, 1, 0.5, 0.5, 1, 1, 0.25, 0.25]
+durations_list = [1, 1, 0.5, 0.5, 1]
 time_stamps16th = []
 time_stamps_msec = []
 
@@ -38,20 +38,30 @@ def stamps_to_time (time_stamps_list, BPM):
 durations_to_timestamps16th(durations_list)
 stamps_to_time(time_stamps16th, BPM)
 
-
-timestamp = time_stamps_msec.pop(0)
-startTime = time.time()
-
-while True:
-    currentTime = time.time()
-    if(currentTime - startTime >= timestamp):
-        wave_obj.play()
-        print(currentTime - startTime)
-        if time_stamps_msec:
-            timestamp = time_stamps_msec.pop(0)
+#times to loop
+loop_count = 4
+i = 0
+while i < loop_count:
+    #setting start time
+    startTime = time.time()
+    i += 1
+    #x for modulo and list index
+    x = 1
+    loop_play = True
+    #loop for playing sample
+    while loop_play == True:
+        currentTime = time.time()
+        #checking if it is time to play a sample
+        if(currentTime - startTime >= time_stamps_msec[x-1]):
+            wave_obj.play()
+            if x >= 1:
+                x = (x + 1) % len(time_stamps_msec)
+                print(x)
+                print(currentTime - startTime)
+            else:
+                #if x = 0
+                loop_play = False
         else:
-            break
-    else:
-        time.sleep(0.001)
-
-time.sleep(1)
+            time.sleep(0.001)
+    #wait until the measure is finished
+    time.sleep(((60/BPM)*4) - time_stamps_msec[-1])
