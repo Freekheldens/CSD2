@@ -4,6 +4,7 @@ import time
 
 print("")
 print("Welcome!")
+
 print("")
 print("--------------------------------------------------------------------------------")
 print("")
@@ -40,7 +41,9 @@ while True:
 print("")
 print("--------------------------------------------------------------------------------")
 print("")
+
 print("Your chosen time signature is: " + str(time_sig1) + "/" + str(time_sig2) + "!")
+
 print("")
 print("--------------------------------------------------------------------------------")
 print("")
@@ -59,20 +62,42 @@ while True:
 print("")
 print("--------------------------------------------------------------------------------")
 print("")
+
 print("Your chosen BPM is: " + str(BPM))
-print("")
-print("--------------------------------------------------------------------------------")
 
 print("")
+print("--------------------------------------------------------------------------------")
+print("")
+
 while True:
     try:
-        loop_count = int(input("How many times would you like to play the loop (standard is 1): ") or 1)
+        loop_count = int(input("How many times would you like to play the loop (standard is 2): ") or 2)
     except ValueError:
         print("")
         print("Please enter a number!")
         print("")
         continue
     else:
+        break
+
+print("")
+print("--------------------------------------------------------------------------------")
+print("")
+
+while True:
+    try:
+        drumkit_choice = int(input("Please enter your prefered drumkit, 909 or 808: ") or 909)
+    except ValueError:
+        print("")
+        print("Please enter 909 or 808!")
+        print("")
+        continue
+    else:
+        if drumkit_choice != 909 and drumkit_choice != 808:
+            print("")
+            print("Please enter 909 or 808!")
+            print("")
+            continue
         break
 
 print("")
@@ -140,10 +165,15 @@ print("Claps:  " + str(clap_list))
 print("Hihats: " + str(hihat_list))
 print("")
 
-#path to samples
-kick_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/bd01.wav")
-clap_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/cp01.wav")
-hihat_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/hh01.wav")
+#sample loader
+if drumkit_choice == 909:
+    kick_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/bd01.wav")
+    clap_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/cp01.wav")
+    hihat_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/hh01.wav")
+elif drumkit_choice == 808:
+        kick_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/bd808.wav")
+        clap_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/cb808.wav")
+        hihat_sample = sa.WaveObject.from_wave_file("/Users/freek/School/Jaar 2/CSD/Git/CSD2/python_basics/Sound Files/ch808.wav")
 
 #slects which samples to play
 def sample_poly():
