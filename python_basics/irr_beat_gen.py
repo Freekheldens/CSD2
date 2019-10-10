@@ -1,10 +1,16 @@
+from pyfiglet import Figlet
 import random
 from midiutil import MIDIFile
 import simpleaudio as sa
 import time
 
 print("")
-print("Welcome!")
+print("")
+print("--------------------------------------------------------------------------------")
+print("")
+
+name_sign = Figlet(font='slant')
+print(name_sign.renderText('Irr Beat Gen V.1'))
 
 print("")
 print("--------------------------------------------------------------------------------")
