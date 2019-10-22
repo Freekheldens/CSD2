@@ -51,6 +51,9 @@ while True:
         if BPM == 0 or  BPM < 0:
             print("\nPlease enter a number higher than 0!\n")
             continue
+        elif BPM > 250:
+            print("\nPlease enter a number lower than 250!\n")
+            continue
         break
 
 print("\n------------------------------------------------------------------------------\n")
@@ -65,6 +68,9 @@ while True:
     else:
         if loop_count == 0 or loop_count < 0:
             print("\nPlease enter a number higher than 0!\n")
+            continue
+        elif loop_count > 16:
+            print("\nPlease enter a number lower than 16!\n")
             continue
         break
 
@@ -255,7 +261,7 @@ while i < loop_count:
 
 print("\n------------------------------------------------------------------------------\n")
 
-#input from user, user can choose if he wants to save Midi file, only accepts valid input
+#input from user, user can choose if he/she wants to save Midi file, only accepts valid input
 while True:
     midi_save_choice = (input("Would you like to save the beat in a Midi file?\nPlease enter yes or no:\n\n") or ("yes"))
     if midi_save_choice != ("yes") and midi_save_choice != ("no"):
