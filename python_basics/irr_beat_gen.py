@@ -28,6 +28,9 @@ while True:
         if time_sig1 == 0 or time_sig1 < 0:
             print("\nPlease enter a number higher than 0!\n")
             continue
+        elif time_sig1 > 16:
+            print("\nPlease enter a number lower than 16!\n")
+            continue
         else:
             if time_sig2 != 2 and time_sig2 != 4 and time_sig2 != 8:
                 print("\nPlease enter a 2, 4 or 8 as second number!\n")
@@ -53,6 +56,9 @@ while True:
             continue
         elif BPM > 250:
             print("\nPlease enter a number lower than 250!\n")
+            continue
+        elif BPM < 30:
+            print("\nPlease enter a number higher than 30!\n")
             continue
         break
 
