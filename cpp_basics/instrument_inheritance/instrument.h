@@ -8,12 +8,13 @@ public:
   // constructor destructor
   Instrument(string type);
   ~Instrument();
-  
+
   // methods
   void play();
-  void pitch();
+  void pitch(string setPitch);
 protected:
   string type;
+  string setPitch;
 };
 
 #endif

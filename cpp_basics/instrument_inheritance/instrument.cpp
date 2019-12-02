@@ -15,6 +15,6 @@ void Instrument::play(){
   cout<< type << " is playing\n";
 }
 
-void Instrument::pitch(){
-  cout<< type << " pitch is: \n";
+void Instrument::pitch(string setPitch){
+  cout<< type << " pitch is: "<< setPitch << "\n";
 }
