@@ -2,17 +2,19 @@
 #include "instrument.h"
 using namespace std;
 
+// constructor
 Instrument::Instrument(string sound){
   this->sound = sound;
-  cout<<"Instrument Constructor\n";
+  cout<<"\nInstrument Constructor\n";
 }
 
+// destructor
 Instrument::~Instrument(){
-  cout<<"Instrument Deconstructor\n";
+  cout<<"\nInstrument Deconstructor\n";
 }
 
+// play function which prints given string
 string Instrument::play(){
-  this->sound = sound;
-  cout<< sound<<"\n";
+  cout<<"\n" << sound<<"\n";
   return sound;
 }
