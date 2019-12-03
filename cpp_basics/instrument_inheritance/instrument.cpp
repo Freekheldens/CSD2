@@ -2,19 +2,16 @@
 using namespace std;
 
 // constructor destructor
-Instrument::Instrument(string type) {
-  cout<<"Instrument::Instrument - constructor, type: " << type <<"\n";
+Instrument::Instrument(string type, string pitchRange) {
+  cout << "Instrument::Instrument - constructor, type: " << type << endl;
   this->type = type;
 }
 
 Instrument::~Instrument(){
-    cout<<"Instrument::Instrument - destructor, type: " << type <<"\n";
+  cout << "Instrument::Instrument - destructor, type: " << type << endl;
 }
 
-void Instrument::play(){
-  cout<< type << " is playing\n";
-}
-
-void Instrument::pitch(string setPitch){
-  cout<< type << " pitch is: "<< setPitch << "\n";
+void Instrument::play(string sound, string pitch){
+  cout << type << " is playing at pitch: " << pitch << "Hz" << ", " << sound
+  << endl;
 }
