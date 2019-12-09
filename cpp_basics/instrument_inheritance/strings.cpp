@@ -5,15 +5,13 @@ using namespace std;
 Strings::Strings(string type, string pitchRange) : Instrument(type, pitchRange)
 {
   //cout << "Brass::Brass - constructor, type: " << type << endl;
-  cout << "String::String - constructor, type: " << type
-  << ", with pitchrange: " << pitchRange << "Hz" << endl;
+  cout << "String added, type: " << type
+  << ", with pitchrange: " << pitchRange << "Hz" << endl <<"\n";
 }
-Strings::~Strings()
-{
-  cout << "String::String - destructor, type: "<< type << endl;
+Strings::~Strings(){
 }
 
 // methods
 void Strings::bend(){
-  cout << type << " is bending" << endl;
+  cout << type << " is bending" << endl <<"\n";
 }

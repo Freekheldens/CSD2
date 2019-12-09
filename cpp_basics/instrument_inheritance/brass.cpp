@@ -5,15 +5,13 @@ using namespace std;
 Brass::Brass(string type, string pitchRange) : Instrument(type, pitchRange)
 {
   //cout << "Brass::Brass - constructor, type: " << type << endl;
-  cout << "Brass::Brass - constructor, type: " << type
-  << ", with pitchrange: " << pitchRange << "Hz" << endl;
+  cout << "Brass added, type: " << type
+  << ", with pitchrange: " << pitchRange << "Hz" << endl <<"\n";
 }
-Brass::~Brass()
-{
-  cout << "Brass::Brass - destructor, type: "<< type << endl;
+Brass::~Brass(){
 }
 
 // methods
 void Brass::mute(){
-  cout << type << " is muted" << endl;
+  cout << type << " is muted" << endl <<"\n";
 }
