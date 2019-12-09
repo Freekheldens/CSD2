@@ -1,7 +1,7 @@
 CXX=g++
 CXXFLAGS=-Wall -std=c++14
 LDFLAGS=
-SOURCE= instrument.o flute.o main.o brass.o
+SOURCE= instrument.o flute.o main.o brass.o strings.o
 
 example: $(SOURCE)
 	$(CXX) -o $@ $(SOURCE) $(LDFLAGS)
