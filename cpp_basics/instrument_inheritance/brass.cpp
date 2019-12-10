@@ -2,11 +2,10 @@
 using namespace std;
 
 //constructor and destructor
-Brass::Brass(string type, string pitchRange) : Instrument(type, pitchRange)
+Brass::Brass(string type, int pitchRange_low, int pitchRange_high) : Instrument(type, pitchRange_low, pitchRange_high)
 {
-  //cout << "Brass::Brass - constructor, type: " << type << endl;
   cout << "Brass added, type: " << type
-  << ", with pitchrange: " << pitchRange << "Hz" << endl <<"\n";
+  << ", with pitchrange: " << pitchRange_low << "Hz - " << pitchRange_high << "Hz" << endl <<"\n";
 }
 Brass::~Brass(){
 }

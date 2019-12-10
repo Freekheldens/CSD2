@@ -6,16 +6,15 @@ using namespace std;
 class Instrument{
 public:
   // constructor destructor
-  Instrument(string type, string pitchRange);
+  Instrument(string type, int pitchRange_low, int pitchRange_high);
   ~Instrument();
 
   // methods
-  void play(string sound, string pitch);
+  void play();
 protected:
   string type;
-  string pitchRange;
-  string sound;
-  string pitch;
+  int pitchRange_low;
+  int pitchRange_high;
 };
 
 #endif
