@@ -14,5 +14,5 @@ Instrument::~Instrument(){
 void Instrument::play(){
   cout << type << " is playing at pitch: "
   << rand() %(pitchRange_high - pitchRange_low) + pitchRange_low << "Hz"
-  << "\n" << endl;
+  << ", " << sound << "\n" << endl;
 }

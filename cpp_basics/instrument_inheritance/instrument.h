@@ -15,6 +15,7 @@ protected:
   string type;
   int pitchRange_low;
   int pitchRange_high;
+  string sound;
 };
 
 #endif
