@@ -2,13 +2,16 @@
 using namespace std;
 
 // constructor and destructor
-Flute::Flute(string type, int pitchRange_low, int pitchRange_high) :
-Instrument(type, pitchRange_low, pitchRange_high)
+Flute::Flute(string type) :
+Instrument(type)
 {
+  pitchRange_low = 200;
+  pitchRange_high = 600;
+  sound = "Fuuut!";
+
   cout << "Flute added, type: " << type
   << ", with pitchrange: " << pitchRange_low << "Hz - " << pitchRange_high
   << "Hz" << endl <<"\n";
-  sound = "Fuuut!";
 }
 
 Flute::~Flute(){

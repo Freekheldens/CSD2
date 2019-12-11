@@ -4,12 +4,14 @@
 
 int main(){
 
-  Flute flute1("Piccolo", 200, 400);
-  Brass brass1("Horn", 100, 300);
-  Strings strings1("Cello", 50, 100);
+  Flute flute1("Piccolo");
+  Brass brass1("Horn");
+  Brass brass2("Trombone");
+  Strings strings1("Cello");
 
   flute1.play();
   brass1.play();
+  brass2.play();
   strings1.play();
 
   strings1.bend();

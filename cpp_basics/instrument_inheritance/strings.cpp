@@ -2,9 +2,12 @@
 using namespace std;
 
 //constructor and destructor
-Strings::Strings(string type, int pitchRange_low, int pitchRange_high) :
-Instrument(type, pitchRange_low, pitchRange_high)
+Strings::Strings(string type) :
+Instrument(type)
 {
+  pitchRange_low = 50;
+  pitchRange_high = 500;
+  sound = "Waowwww!";
   cout << "String added, type: " << type
   << ", with pitchrange: " << pitchRange_low << "Hz - " << pitchRange_high
   << "Hz" << endl <<"\n";

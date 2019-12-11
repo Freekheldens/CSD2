@@ -2,9 +2,7 @@
 using namespace std;
 
 // constructor destructor
-Instrument::Instrument(string type, int pitchRange_low, int pitchRange_high) {
-  this->pitchRange_low = pitchRange_low;
-  this->pitchRange_high = pitchRange_high;
+Instrument::Instrument(string type) {
   this->type = type;
 }
 

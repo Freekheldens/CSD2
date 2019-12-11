@@ -6,7 +6,7 @@ using namespace std;
 class Instrument{
 public:
   // constructor destructor
-  Instrument(string type, int pitchRange_low, int pitchRange_high);
+  Instrument(string type);
   ~Instrument();
 
   // methods
