@@ -4,6 +4,8 @@
 #include "math.h"
 #include "sine.h"
 #include "square.h"
+#include "saw.h"
+#include "add_synth.h"
 
 /*
  * NOTE: jack2 needs to be installed
@@ -12,8 +14,6 @@
  * on mac, you can start the jack audio server daemon in the terminal:
  * jackd -d coreaudio
  */
-
-#define PI_2 6.28318530717959
 
 int main(int argc,char **argv)
 {
@@ -24,8 +24,9 @@ int main(int argc,char **argv)
   jack.init(argv[0]);
   double samplerate = jack.getSamplerate();
 
-  Square sine;
-  sine.setFrequency(220);
+  Add_synth sine;
+  sine.setAmplitude(0.1);
+  sine.setFrequency(440);
 
   //assign a function to the JackModule::onProces
   jack.onProcess = [&](jack_default_audio_sample_t *inBuf,
