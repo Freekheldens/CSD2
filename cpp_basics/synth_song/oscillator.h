@@ -11,12 +11,9 @@ public:
   //Constructor and destructor
   Oscillator();
   ~Oscillator();
-
   //setters
   void setFrequency(float frequency);
-
   void setAmplitude(float amplitude);
-
   //return the current sample
   float getSample();
 
