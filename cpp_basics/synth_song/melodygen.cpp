@@ -54,24 +54,31 @@ void Melodygen::Mixplay(int noteAmount) {
     cout << i << endl;
     switch (dist(rng)) {
       case 1:
+        cout << "C" << endl;
         synht1.makeSound(261.63); // c
         break;
       case 2:
+        cout << "Es" << endl;
         synht1.makeSound(311.13); // es
         break;
       case 3:
+        cout << "F" << endl;
         synht1.makeSound(349.23); // f
         break;
       case 4:
+        cout << "Ges" << endl;
         synht1.makeSound(369.99); // ges
         break;
       case 5:
+        cout << "G" << endl;
         synht1.makeSound(392); // g
         break;
       case 6:
+        cout << "Bes" << endl;
         synht1.makeSound(466.61); // bes
         break;
       case 7:
+        cout << "C'" << endl;
         synht1.makeSound(523.25); // c'
         break;
     }

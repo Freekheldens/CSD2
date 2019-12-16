@@ -21,7 +21,7 @@ int Mixsynth::makeSound(float baseFrequency){
     osc2.setAmplitude(1);
     env.setAmplitude(1);
     osc1.setFrequency(baseFrequency);
-    osc2.setFrequency(0.505 * baseFrequency);
+    osc2.setFrequency(0.502 * baseFrequency);
     env.setFrequency(0.5);
 
     //assign a function to the JackModule::onProces
@@ -42,6 +42,7 @@ int Mixsynth::makeSound(float baseFrequency){
     jack.autoConnect();
 
     usleep(1900000);
+    jack.end();
 
     return 0;
 }

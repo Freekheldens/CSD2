@@ -11,10 +11,18 @@ using namespace std;
  * jackd -d coreaudio
  */
 
-int main(int argc,char **argv)
+int main()
 {
+  cout << "\n\n\nWelcome!\n\n\n";
+  cout << "Please choose a synthesizer\n\nEnter a '1' for a AM-Synth\n";
+  cout << "Or enter a '2' for a Mix-Synth (square wave and saw wave mixed)\n\n";
+  int synthChoice;
+  cin >> synthChoice;
+  int noteAmount;
+  cout << "\nPlease enter the number of notes you want to play: \n\n";
+  cin >> noteAmount;
   Melodygen Mel;
-  Mel.Mixplay(16);
+  Mel.AMplay(noteAmount);
   //end the program
   return 0;
 } // main()
