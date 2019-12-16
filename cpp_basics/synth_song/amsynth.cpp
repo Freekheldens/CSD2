@@ -1,11 +1,9 @@
 #include "amsynth.h"
 
 Amsynth::Amsynth(){
-  cout << "Addsynth constructor" << endl;
 }
 
 Amsynth::~Amsynth(){
-  cout << "Addsynth destructor" << endl;
 }
 
 int Amsynth::makeSound(float baseFrequency){

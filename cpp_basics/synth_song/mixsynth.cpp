@@ -1,11 +1,9 @@
 #include "mixsynth.h"
 
 Mixsynth::Mixsynth(){
-  cout << "Mixsynth constructor" << endl;
 }
 
 Mixsynth::~Mixsynth(){
-  cout << "Mixsynth destructor" << endl;
 }
 
 int Mixsynth::makeSound(float baseFrequency){
@@ -17,8 +15,8 @@ int Mixsynth::makeSound(float baseFrequency){
     Square osc2;
     Saw env;
 
-    osc1.setAmplitude(1);
-    osc2.setAmplitude(1);
+    osc1.setAmplitude(0.25);
+    osc2.setAmplitude(0.25);
     env.setAmplitude(1);
     osc1.setFrequency(baseFrequency);
     osc2.setFrequency(0.502 * baseFrequency);

@@ -13,16 +13,25 @@ using namespace std;
 
 int main()
 {
+  int noteAmount;
+  Melodygen Mel;
+  Melodygen Mel2;
   cout << "\n\n\nWelcome!\n\n\n";
   cout << "Please choose a synthesizer\n\nEnter a '1' for a AM-Synth\n";
   cout << "Or enter a '2' for a Mix-Synth (square wave and saw wave mixed)\n\n";
-  int synthChoice;
-  cin >> synthChoice;
-  int noteAmount;
-  cout << "\nPlease enter the number of notes you want to play: \n\n";
-  cin >> noteAmount;
-  Melodygen Mel;
-  Mel.AMplay(noteAmount);
-  //end the program
+  switch (cin.get()) {
+    case '1':
+      cout << "\nPlease enter the number of notes you want to play: \n\n";
+      cin >> noteAmount;
+      cout << "\n";
+      Mel.AMplay(noteAmount);
+      break;
+    case '2':
+      cout << "\nPlease enter the number of notes you want to play: \n\n";
+      cin >> noteAmount;
+      cout << "\n";
+      Mel2.Mixplay(noteAmount);
+      break;
+  }
   return 0;
 } // main()

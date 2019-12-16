@@ -2,11 +2,9 @@
 #include "math.h"
 
 Square::Square() : Oscillator() {
-  cout << "Sqaure constructor" << endl;
 }
 
 Square::~Square() {
-  cout << "Square destructor" << endl;
 }
 
 // sine wave formula
