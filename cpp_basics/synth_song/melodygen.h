@@ -6,10 +6,11 @@ using namespace std;
 
 class Melodygen {
 public:
-  // constructor destructor
+  // Constructor destructor
   Melodygen();
   ~Melodygen();
 
-void AMplay(int noteAmount);
-void Mixplay(int noteAmount);
+  // playing notes with given synth
+  void AMplay(int noteAmount);
+  void Mixplay(int noteAmount);
 };

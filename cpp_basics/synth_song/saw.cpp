@@ -1,13 +1,14 @@
 #include "saw.h"
-#include "math.h"
 
+// Constructor
 Saw::Saw() : Oscillator() {
 }
 
+// Constructor
 Saw::~Saw() {
 }
 
-// sine wave formula
+// Saw wave formula
 void Saw::tick(double samplerate) {
   phase += frequency / samplerate;
   sample = ((fmod(phase,1)*2)-1) * amplitude;

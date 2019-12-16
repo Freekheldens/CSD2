@@ -1,17 +1,21 @@
 #include "melodygen.h"
 
-
+// Constructor
 Melodygen::Melodygen() {
 }
 
+// Destructor
 Melodygen::~Melodygen() {
 }
 
+// Playing random notes in a blues scale with the AM synth
 void Melodygen::AMplay(int noteAmount){
 
   Amsynth synht1;
 
+  // Looping untill noteAmount is reached
   for (int i = 0; i < noteAmount;){
+    // Generating random number
     random_device dev;
     mt19937 rng(dev());
     uniform_int_distribution<std::mt19937::result_type> dist(1,7);
@@ -49,11 +53,14 @@ void Melodygen::AMplay(int noteAmount){
   }
 }
 
+// Playing random notes in a blues scale with the "Mix" synth
 void Melodygen::Mixplay(int noteAmount) {
 
   Mixsynth synht2;
 
+  // Looping untill noteAmount is reached
   for (int i = 0; i < noteAmount;){
+    // Generating random number 
     random_device dev;
     mt19937 rng(dev());
     uniform_int_distribution<std::mt19937::result_type> dist(1,7);

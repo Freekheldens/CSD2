@@ -1,9 +1,10 @@
 #include "sine.h"
-#include "math.h"
 
+// Constructor
 Sine::Sine() : Oscillator() {
 }
 
+// Destructor
 Sine::~Sine() {
 }
 

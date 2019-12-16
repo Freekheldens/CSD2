@@ -1,6 +1,6 @@
-#include <iostream>
-#include <thread>
 #include "melodygen.h"
+
+#include <iostream>
 using namespace std;
 
 /*
@@ -16,9 +16,12 @@ int main()
   int noteAmount;
   Melodygen Mel;
   Melodygen Mel2;
+  // UX/UI text
   cout << "\n\n\nWelcome!\n\n\n";
   cout << "Please choose a synthesizer\n\nEnter a '1' for a AM-Synth\n";
   cout << "Or enter a '2' for a Mix-Synth (square wave and saw wave mixed)\n\n";
+
+  // Choosing type of synthesizer
   switch (cin.get()) {
     case '1':
       cout << "\nPlease enter the number of notes you want to play: \n\n";
@@ -33,5 +36,6 @@ int main()
       Mel2.Mixplay(noteAmount);
       break;
   }
+  // End of program
   return 0;
 } // main()

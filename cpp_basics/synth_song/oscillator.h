@@ -4,24 +4,25 @@
 #include <iostream>
 using namespace std;
 
+#include "math.h"
 #define PI_2 6.28318530717959
 
 class Oscillator {
 public:
-  //Constructor and destructor
+  // Constructor and destructor
   Oscillator();
   ~Oscillator();
-  //setters
+  // Setters
   void setFrequency(float frequency);
   void setAmplitude(float amplitude);
-  //return the current sample
+  // Return the current sample
   float getSample();
 
 protected:
   float frequency;
   float amplitude;
   float phase;
-  // contains the current sample
+  // Contains the current sample
   float sample;
   float samplerate;
 };

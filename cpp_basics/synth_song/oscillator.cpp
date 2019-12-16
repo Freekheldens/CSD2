@@ -1,8 +1,10 @@
 #include "oscillator.h"
 
+// Constructor
 Oscillator::Oscillator() {
 }
 
+// Destructor
 Oscillator::~Oscillator() {
 }
 
