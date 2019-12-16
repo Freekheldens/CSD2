@@ -1,7 +1,5 @@
 #include <iostream>
 #include <thread>
-#include "amsynth.h"
-#include "mixsynth.h"
 #include "melodygen.h"
 using namespace std;
 
@@ -15,11 +13,8 @@ using namespace std;
 
 int main(int argc,char **argv)
 {
-  Addsynth synht1;
-  synht1.makeSound(220);
   Melodygen Mel;
   Mel.AMplay();
-
   //end the program
   return 0;
 } // main()
