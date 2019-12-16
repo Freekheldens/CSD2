@@ -11,6 +11,6 @@ public:
   Melodygen();
   ~Melodygen();
 
-void AMplay();
-void Mixplay();
+void AMplay(int noteAmount);
+void Mixplay(int noteAmount);
 };

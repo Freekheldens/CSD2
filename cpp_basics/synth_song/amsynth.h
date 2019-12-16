@@ -1,14 +1,14 @@
 #include "jack_module.h"
+#include "unistd.h"
 #include "sine.h"
-#include "square.h"
 #include "saw.h"
 #include <iostream>
 using namespace std;
 
-class Addsynth {
+class Amsynth {
 public:
-  Addsynth();
-  ~Addsynth();
+  Amsynth();
+  ~Amsynth();
 
 int argc;
 char **argv;

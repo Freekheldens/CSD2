@@ -1,15 +1,14 @@
 #include "amsynth.h"
-#include "unistd.h"
 
-Addsynth::Addsynth(){
+Amsynth::Amsynth(){
   cout << "Addsynth constructor" << endl;
 }
 
-Addsynth::~Addsynth(){
+Amsynth::~Amsynth(){
   cout << "Addsynth destructor" << endl;
 }
 
-int Addsynth::makeSound(float baseFrequency){
+int Amsynth::makeSound(float baseFrequency){
   JackModule jack;
   jack.init();
   double samplerate = jack.getSamplerate();

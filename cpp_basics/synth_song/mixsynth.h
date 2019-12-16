@@ -1,4 +1,5 @@
 #include "jack_module.h"
+#include "unistd.h"
 #include "square.h"
 #include "saw.h"
 #include <iostream>

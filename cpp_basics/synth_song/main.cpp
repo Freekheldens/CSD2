@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc,char **argv)
 {
   Melodygen Mel;
-  Mel.AMplay();
+  Mel.Mixplay(16);
   //end the program
   return 0;
 } // main()
