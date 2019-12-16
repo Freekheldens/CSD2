@@ -24,7 +24,7 @@ int Mixsynth::makeSound(float baseFrequency){
   osc2.setAmplitude(0.25);
   env.setAmplitude(1);
   osc1.setFrequency(baseFrequency);
-  osc2.setFrequency(0.502 * baseFrequency);
+  osc2.setFrequency(0.252 * baseFrequency);
   env.setFrequency(0.5);
 
   //assign a function to the JackModule::onProces
