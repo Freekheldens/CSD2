@@ -28,19 +28,29 @@ int main(int argc,char **argv)
 
     static float phase = 0;
     static float amplitude = 1;
-    static float frequency = 80;
-    static double treshold = 0.8;
+    static float frequency = 220;
+
+    static float drive = 10;
+
+    // static double treshold = 0.8;
 
     for(unsigned int i = 0; i < nframes; i++) {
       outBuf[i] = amplitude * sin(phase * PI_2 );
       phase += frequency / samplerate;
-      if (outBuf[i] >= 0) {
-        outBuf[i] = fmin(outBuf[i], treshold);
-      }
-      else {
-        outBuf[i] = fmax(outBuf[i], -treshold);
-      }
-      outBuf[i] /= treshold;
+
+    // distortion 1
+    //   if (outBuf[i] >= 0) {
+    //     outBuf[i] = fmin(outBuf[i], treshold);
+    //   }
+    //   else {
+    //     outBuf[i] = fmax(outBuf[i], -treshold);
+    //   }
+    //   outBuf[i] /= treshold;
+
+    //distortion 2
+    outBuf[i] = (outBuf[i] * drive);
+    outBuf[i] = (2/M_PI) * atan(outBuf[i]);
+
     }
 
     return 0;
