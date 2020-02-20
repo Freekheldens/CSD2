@@ -1,7 +1,11 @@
 #include <iostream>
 #include <thread>
-#include "jack_module.h"
 #include "math.h"
+
+#include "jack_module.h"
+#include "sine.h"
+
+using namespace std;
 
 /*
  * NOTE: jack2 needs to be installed
@@ -15,6 +19,14 @@
 
 int main(int argc,char **argv)
 {
+  Sine sine1;
+  sine1.setAmplitude(0.1);
+  sine1.setFrequency(440);
+
+  Sine lfo;
+  lfo.setAmplitude(1);
+  lfo.setFrequency(1);
+
   // create a JackModule instance
   JackModule jack;
 
@@ -23,22 +35,24 @@ int main(int argc,char **argv)
   double samplerate = jack.getSamplerate();
 
   //assign a function to the JackModule::onProces
-  jack.onProcess = [samplerate](jack_default_audio_sample_t *inBuf,
+  jack.onProcess = [&](jack_default_audio_sample_t *inBuf,
      jack_default_audio_sample_t *outBuf, jack_nframes_t nframes) {
 
-    static float phase = 0;
-    static float amplitude = 1;
-    static float frequency = 220;
-
-    static float drive = 10;
-
-    // static double treshold = 0.8;
-
     for(unsigned int i = 0; i < nframes; i++) {
-      outBuf[i] = amplitude * sin(phase * PI_2 );
-      phase += frequency / samplerate;
+      sine1.tick(samplerate);
+      lfo.tick(samplerate);
 
-    // distortion 1
+      float lfoSample = ((((lfo.getSample() * 0.5) + 0.5) * 10) + 5);
+      outBuf[i] = sine1.getSample();
+
+      float drive = lfoSample;
+
+      //distortion method 1
+      outBuf[i] = (outBuf[i] * drive);
+      outBuf[i] = (2/M_PI) * atan(outBuf[i]);
+
+    // distortion method 2
+    // static double treshold = 0.8;
     //   if (outBuf[i] >= 0) {
     //     outBuf[i] = fmin(outBuf[i], treshold);
     //   }
@@ -46,20 +60,14 @@ int main(int argc,char **argv)
     //     outBuf[i] = fmax(outBuf[i], -treshold);
     //   }
     //   outBuf[i] /= treshold;
-
-    //distortion 2
-    outBuf[i] = (outBuf[i] * drive);
-    outBuf[i] = (2/M_PI) * atan(outBuf[i]);
-
     }
-
     return 0;
   };
 
   jack.autoConnect();
 
   //keep the program running and listen for user input, q = quit
-  std::cout << "\n\nPress 'q' when you want to quit the program.\n";
+  cout << "\n\nPress 'q' when you want to quit the program.\n";
   bool running = true;
   while (running)
   {
