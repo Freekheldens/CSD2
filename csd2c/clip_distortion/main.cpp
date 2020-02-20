@@ -37,7 +37,7 @@ int main(int argc,char **argv)
   cout << "\nPlease enter lfo depth:\n\n";
   cin >> lfoDepth;
 
-  // amount of "drive"
+  // amount of "drive" for distortion
   float driveAmount = 5;
   cout << "\nPlease enter drive amount:\n\n";
   cin >> driveAmount;
