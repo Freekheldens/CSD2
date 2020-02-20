@@ -4,7 +4,9 @@
 
 #include "jack_module.h"
 #include "sine.h"
-#include "lfo.h"
+#include "lfo_sine.h"
+#include "lfo_square.h"
+#include "lfo_saw.h"
 
 using namespace std;
 
@@ -21,11 +23,11 @@ using namespace std;
 int main(int argc,char **argv)
 {
   Sine sine1;
-  sine1.setAmplitude(0.1);
-  sine1.setFrequency(220);
+  sine1.setAmplitude(0.02);
+  sine1.setFrequency(440);
 
-  Lfo lfo;
-  lfo.setFrequency(1);
+  Lfo_square lfo;
+  lfo.setFrequency(20);
 
   // create a JackModule instance
   JackModule jack;
@@ -44,7 +46,7 @@ int main(int argc,char **argv)
 
       outBuf[i] = sine1.getSample();
 
-      float drive = ((lfo.getSample() * 20) + 10);
+      double drive = ((lfo.getSample() * 20) + 10);
 
       //distortion method 1
       outBuf[i] = (outBuf[i] * drive);

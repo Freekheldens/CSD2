@@ -1,15 +1,15 @@
-#include "lfo.h"
+#include "lfo_sine.h"
 
 // Constructor
-Lfo::Lfo() : Oscillator() {
+Lfo_sine::Lfo_sine() : Oscillator() {
 }
 
 // Destructor
-Lfo::~Lfo() {
+Lfo_sine::~Lfo_sine() {
 }
 
 // sine wave formula
-void Lfo::tick(double samplerate) {
+void Lfo_sine::tick(double samplerate) {
   phase += frequency / samplerate;
   sample = (0.5 * (sin(phase * PI_2)) + 0.5);
 }
