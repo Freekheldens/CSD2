@@ -8,7 +8,7 @@ Lfo_square::Lfo_square() : Oscillator() {
 Lfo_square::~Lfo_square() {
 }
 
-// Sine wave formula
+// Sine wave formula made so it moves from 0 to 1
 void Lfo_square::tick(double samplerate) {
   phase += frequency / samplerate;
   sample = (0.5 * (sin(phase * PI_2)) + 0.5);

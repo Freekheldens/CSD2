@@ -22,12 +22,25 @@ using namespace std;
 
 int main(int argc,char **argv)
 {
+  // sine wave to be modulated by distortion
   Sine sine1;
-  sine1.setAmplitude(0.02);
-  sine1.setFrequency(440);
+  sine1.setAmplitude(1);
+  sine1.setFrequency(110);
 
-  Lfo_square lfo;
-  lfo.setFrequency(20);
+  // lfo for "drive" parameter and setting frequency and depth
+  Lfo_sine lfo;
+  float lfoSpeed = 5;
+  cout << "\nPlease enter lfo speed:\n\n";
+  cin >> lfoSpeed;
+  lfo.setFrequency(lfoSpeed);
+  float lfoDepth = 5;
+  cout << "\nPlease enter lfo depth:\n\n";
+  cin >> lfoDepth;
+
+  // amount of "drive"
+  float driveAmount = 5;
+  cout << "\nPlease enter drive amount:\n\n";
+  cin >> driveAmount;
 
   // create a JackModule instance
   JackModule jack;
@@ -43,14 +56,15 @@ int main(int argc,char **argv)
     for(unsigned int i = 0; i < nframes; i++) {
       sine1.tick(samplerate);
       lfo.tick(samplerate);
-
       outBuf[i] = sine1.getSample();
 
-      double drive = ((lfo.getSample() * 20) + 10);
+      // calculating lfoDepth and driveAmount and assging it to variable to use below
+      double drive = ((lfo.getSample() * lfoDepth) + driveAmount);
 
       //distortion method 1
       outBuf[i] = (outBuf[i] * drive);
       outBuf[i] = (2/M_PI) * atan(outBuf[i]);
+      outBuf[i] /= drive;
 
     // distortion method 2
     // static double treshold = 0.8;
