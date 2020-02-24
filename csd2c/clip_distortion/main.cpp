@@ -28,11 +28,19 @@ int main(int argc,char **argv)
   sine1.setFrequency(110);
 
   // lfo for "drive" parameter and setting frequency and depth
-  Lfo_sine lfo;
-  float lfoSpeed = 5;
-  cout << "\nPlease enter lfo speed:\n\n";
-  cin >> lfoSpeed;
-  lfo.setFrequency(lfoSpeed);
+  Lfo_sine lfoR;
+  Lfo_sine lfoL;
+
+  float lfoSpeedR = 5;
+  cout << "\nPlease enter lfo speed for right audio channel:\n\n";
+  cin >> lfoSpeedR;
+  lfoR.setFrequency(lfoSpeedR);
+
+  float lfoSpeedL = 5;
+  cout << "\nPlease enter lfo speed for left audio channel:\n\n";
+  cin >> lfoSpeedL;
+  lfoL.setFrequency(lfoSpeedL);
+
   float lfoDepth = 5;
   cout << "\nPlease enter lfo depth:\n\n";
   cin >> lfoDepth;
@@ -51,20 +59,31 @@ int main(int argc,char **argv)
 
   //assign a function to the JackModule::onProces
   jack.onProcess = [&](jack_default_audio_sample_t *inBuf,
-     jack_default_audio_sample_t *outBuf, jack_nframes_t nframes) {
+     jack_default_audio_sample_t *outBufL, jack_default_audio_sample_t *outBufR, jack_nframes_t nframes) {
 
     for(unsigned int i = 0; i < nframes; i++) {
       sine1.tick(samplerate);
-      lfo.tick(samplerate);
-      outBuf[i] = sine1.getSample();
+      lfoL.tick(samplerate);
+      lfoR.tick(samplerate);
+      outBufL[i] = sine1.getSample(); // could also be inBuf[i]
+      outBufR[i] = sine1.getSample();
 
       // calculating lfoDepth and driveAmount and assging it to variable to use below
-      double drive = ((lfo.getSample() * lfoDepth) + driveAmount);
+      // left channel drive
+      double driveL = ((lfoL.getSample() * lfoDepth) + driveAmount);
 
-      //distortion method 1
-      outBuf[i] = (outBuf[i] * drive);
-      outBuf[i] = (2/M_PI) * atan(outBuf[i]);
-      outBuf[i] /= drive;
+      //right channel drive
+      double driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
+
+      //distortion method 1 left channel
+      outBufL[i] = (outBufL[i] * driveL);
+      outBufL[i] = (2/M_PI) * atan(outBufL[i]);
+      outBufL[i] /= driveL;
+
+      //distortion method 1 right channel
+      outBufR[i] = (outBufR[i] * driveR);
+      outBufR[i] = (2/M_PI) * atan(outBufR[i]);
+      outBufR[i] /= driveR;
 
     // distortion method 2
     // static double treshold = 0.8;
