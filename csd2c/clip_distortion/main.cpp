@@ -5,8 +5,6 @@
 #include "jack_module.h"
 #include "sine.h"
 #include "lfo_sine.h"
-#include "lfo_square.h"
-#include "lfo_saw.h"
 
 using namespace std;
 
@@ -27,25 +25,28 @@ int main(int argc,char **argv)
   sine1.setAmplitude(1);
   sine1.setFrequency(110);
 
-  // lfo for "drive" parameter and setting frequency and depth
+  // lfo's for left and right audio channels
   Lfo_sine lfoR;
   Lfo_sine lfoL;
 
+  // setting lfo speed for the right audio channel
   float lfoSpeedR = 5;
   cout << "\nPlease enter lfo speed for right audio channel:\n\n";
   cin >> lfoSpeedR;
   lfoR.setFrequency(lfoSpeedR);
 
+  // setting lfo speed for the left audio channel
   float lfoSpeedL = 5;
   cout << "\nPlease enter lfo speed for left audio channel:\n\n";
   cin >> lfoSpeedL;
   lfoL.setFrequency(lfoSpeedL);
 
+  // setting the lfo depth (this is for both left and right audio channels)
   float lfoDepth = 5;
   cout << "\nPlease enter lfo depth:\n\n";
   cin >> lfoDepth;
 
-  // amount of "drive" for distortion
+  // amount of "drive" for distortion (also for both left and right audio channels)
   float driveAmount = 5;
   cout << "\nPlease enter drive amount:\n\n";
   cin >> driveAmount;
@@ -62,17 +63,18 @@ int main(int argc,char **argv)
      jack_default_audio_sample_t *outBufL, jack_default_audio_sample_t *outBufR, jack_nframes_t nframes) {
 
     for(unsigned int i = 0; i < nframes; i++) {
+      // ticking sine and lfo's
       sine1.tick(samplerate);
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
+
       outBufL[i] = sine1.getSample(); // could also be inBuf[i]
       outBufR[i] = sine1.getSample();
 
-      // calculating lfoDepth and driveAmount and assging it to variable to use below
-      // left channel drive
+      // left channel drive with lfo modulation
       double driveL = ((lfoL.getSample() * lfoDepth) + driveAmount);
 
-      //right channel drive
+      //right channel drive with lfo modulation
       double driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
 
       //distortion method 1 left channel
