@@ -79,8 +79,8 @@ int main(int argc,char **argv)
       //right channel drive with lfo modulation
       float driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
 
+      // distorting sine1 with distL and distR (this could also be inBuf[i] isntead of sine)
       outBufL[i] = (distL.getSample((sine1.getSample() * driveL))) / driveL;
-
       outBufR[i] = (distR.getSample((sine1.getSample() * driveR))) / driveR;
 
     }
