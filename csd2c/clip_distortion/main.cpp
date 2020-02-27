@@ -5,6 +5,7 @@
 #include "jack_module.h"
 #include "sine.h"
 #include "lfo_sine.h"
+#include "distortion.h"
 
 using namespace std;
 
@@ -24,6 +25,10 @@ int main(int argc,char **argv)
   Sine sine1;
   sine1.setAmplitude(1);
   sine1.setFrequency(110);
+
+  // distortions for both audio channels
+  Distortion distL;
+  Distortion distR;
 
   // lfo's for left and right audio channels
   Lfo_sine lfoR;
@@ -68,34 +73,16 @@ int main(int argc,char **argv)
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
 
-      outBufL[i] = sine1.getSample(); // could also be inBuf[i]
-      outBufR[i] = sine1.getSample();
-
       // left channel drive with lfo modulation
-      double driveL = ((lfoL.getSample() * lfoDepth) + driveAmount);
+      float driveL = ((lfoL.getSample() * lfoDepth) + driveAmount);
 
       //right channel drive with lfo modulation
-      double driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
+      float driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
 
-      //distortion method 1 left channel
-      outBufL[i] = (outBufL[i] * driveL);
-      outBufL[i] = (2/M_PI) * atan(outBufL[i]);
-      outBufL[i] /= driveL;
+      outBufL[i] = (distL.getSample((sine1.getSample() * driveL))) / driveL;
 
-      //distortion method 1 right channel
-      outBufR[i] = (outBufR[i] * driveR);
-      outBufR[i] = (2/M_PI) * atan(outBufR[i]);
-      outBufR[i] /= driveR;
+      outBufR[i] = (distR.getSample((sine1.getSample() * driveR))) / driveR;
 
-    // distortion method 2
-    // static double treshold = 0.8;
-    //   if (outBuf[i] >= 0) {
-    //     outBuf[i] = fmin(outBuf[i], treshold);
-    //   }
-    //   else {
-    //     outBuf[i] = fmax(outBuf[i], -treshold);
-    //   }
-    //   outBuf[i] /= treshold;
     }
     return 0;
   };
