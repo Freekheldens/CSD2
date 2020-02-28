@@ -35,26 +35,18 @@ int main(int argc,char **argv)
   Lfo_sine lfoL;
 
   // setting lfo speed for the right audio channel
-  float lfoSpeedR = 5;
-  cout << "\nPlease enter lfo speed for right audio channel:\n\n";
-  cin >> lfoSpeedR;
+  float lfoSpeedR = 1;
   lfoR.setFrequency(lfoSpeedR);
 
   // setting lfo speed for the left audio channel
-  float lfoSpeedL = 5;
-  cout << "\nPlease enter lfo speed for left audio channel:\n\n";
-  cin >> lfoSpeedL;
+  float lfoSpeedL = 2;
   lfoL.setFrequency(lfoSpeedL);
 
   // setting the lfo depth (this is for both left and right audio channels)
-  float lfoDepth = 5;
-  cout << "\nPlease enter lfo depth:\n\n";
-  cin >> lfoDepth;
+  float lfoDepth = 9;
 
   // amount of "drive" for distortion (also for both left and right audio channels)
-  float driveAmount = 5;
-  cout << "\nPlease enter drive amount:\n\n";
-  cin >> driveAmount;
+  float driveAmount = 1;
 
   // create a JackModule instance
   JackModule jack;
@@ -91,6 +83,10 @@ int main(int argc,char **argv)
 
   //keep the program running and listen for user input, q = quit
   cout << "\n\nPress 'q' when you want to quit the program.\n";
+  cout << "Press 'r' to change the right lfo speed.\n";
+  cout << "Press 'l' to change the left lfo speed.\n";
+  cout << "Press 'd' to change the lfo depth.\n";
+  cout << "Press 'a' to change the drive amount/lfo offset.\n";
   bool running = true;
   while (running)
   {
@@ -99,6 +95,22 @@ int main(int argc,char **argv)
       case 'q':
         running = false;
         jack.end();
+        break;
+      case 'r':
+        float newlfoSpeedR;
+        cin >> newlfoSpeedR;
+        lfoR.setFrequency(newlfoSpeedR);
+        break;
+      case 'l':
+        float newlfoSpeedL;
+        cin >> newlfoSpeedL;
+        lfoL.setFrequency(newlfoSpeedL);
+        break;
+      case 'd':
+        cin >> lfoDepth;
+        break;
+      case 'a':
+        cin >> driveAmount;
         break;
     }
   }
