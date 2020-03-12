@@ -7,15 +7,13 @@ Distortion
 Delay
 
 
-Hartsensor
+Eye Tracker
 
 Data:
-Beats per minute en de losse beats
+X en Y
 
-Angst
-Spanning
 
-Omgevingsgeluid van plaatje 
+Omgevingsgeluid van plaatje?
 
 
 12 scenarios 
@@ -41,10 +39,3 @@ Vliegtuig
 Verdrinken
 Brand
 Botbreuk
-
-
-
-
-
-
-Jump Scare misschien
