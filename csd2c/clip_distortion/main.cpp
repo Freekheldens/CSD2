@@ -21,8 +21,10 @@ using namespace std;
 #define PI_2 6.28318530717959
 
 // global variables, to be received via OSC
-int int1;
-int int2;
+float oscLfoSpeedR;
+float oscLfoSpeedL;
+float oscLfoDepth;
+float oscDrive;
 
 // subclass OSC into a local class so we can provide our own callback
 class localOSC : public OSC
@@ -31,13 +33,21 @@ class localOSC : public OSC
   {
   // osc "paramater" name
   string msgpath=path;
-    // if osc "parameter" name is /int1
-    if(!msgpath.compare("/int1")){
-      int1 = argv[0]->i;
+    // if osc "parameter" name is /oscLfoSpeedR
+    if(!msgpath.compare("/oscLfoSpeedR")){
+      oscLfoSpeedR = argv[0]->f;
     }
-    // if osc "parameter" name is /int2
-    if(!msgpath.compare("/int2")){
-      int2 = argv[0]->i;
+    // if osc "parameter" name is /oscLfoSpeedL
+    if(!msgpath.compare("/oscLfoSpeedL")){
+      oscLfoSpeedL = argv[0]->f;
+    }
+    // if osc "parameter" name is /oscLfoDepth
+    if(!msgpath.compare("/oscLfoDepth")){
+      oscLfoDepth = argv[0]->f;
+    }
+    // if osc "parameter" name is /oscDrive
+    if(!msgpath.compare("/oscDrive")){
+      oscDrive = argv[0]->f;
     }
     return 0;
   }
@@ -45,15 +55,6 @@ class localOSC : public OSC
 
 int main(int argc,char **argv)
 {
-  localOSC osc;
-  string serverport="7777";
-
-  osc.init(serverport);
-  osc.set_callback("/int1","i");
-  osc.set_callback("/int2","i");
-  osc.start();
-  cout << "Listening on port " << serverport << endl;
-
   // sine wave to be modulated by distortion
   Sine sine1;
   sine1.setAmplitude(1);
@@ -67,20 +68,6 @@ int main(int argc,char **argv)
   Lfo_sine lfoR;
   Lfo_sine lfoL;
 
-  // setting lfo speed for the right audio channel
-  float lfoSpeedR = 1;
-  lfoR.setFrequency(lfoSpeedR);
-
-  // setting lfo speed for the left audio channel
-  float lfoSpeedL = 2;
-  lfoL.setFrequency(lfoSpeedL);
-
-  // setting the lfo depth (this is for both left and right audio channels)
-  float lfoDepth = 9;
-
-  // amount of "drive" for distortion (also for both left and right audio channels)
-  float driveAmount = 1;
-
   // create a JackModule instance
   JackModule jack;
 
@@ -88,28 +75,38 @@ int main(int argc,char **argv)
   jack.init(argv[0]);
   double samplerate = jack.getSamplerate();
 
+  // setting up OSC server
+  localOSC osc;
+  string serverport="10024";
+  osc.init(serverport);
+  osc.set_callback("/oscLfoSpeedR","f");
+  osc.set_callback("/oscLfoSpeedL","f");
+  osc.set_callback("/oscLfoDepth","f");
+  osc.set_callback("/oscDrive","f");
+  osc.start();
+  cout << "Listening on port " << serverport << endl;
+
   //assign a function to the JackModule::onProces
   jack.onProcess = [&](jack_default_audio_sample_t *inBuf,
      jack_default_audio_sample_t *outBufL, jack_default_audio_sample_t *outBufR, jack_nframes_t nframes) {
 
     for(unsigned int i = 0; i < nframes; i++) {
-      //integers received over OSC
-      cout << "int1: " << int1 << endl;
-      lfoR.setFrequency(int1);
-      cout << "int2: " << int2 << endl;
-      lfoL.setFrequency(int2);
       // ticking sine and lfo's
       sine1.tick(samplerate);
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
 
+      //variables received over OSC
+      lfoR.setFrequency(oscLfoSpeedR);
+      lfoL.setFrequency(oscLfoSpeedL);
+
       // left channel drive with lfo modulation
-      float driveL = ((lfoL.getSample() * lfoDepth) + driveAmount);
+      float driveL = ((lfoL.getSample() * oscLfoDepth) + oscDrive);
 
       //right channel drive with lfo modulation
-      float driveR = ((lfoR.getSample() * lfoDepth) + driveAmount);
+      float driveR = ((lfoR.getSample() * oscLfoDepth) + oscDrive);
 
-      // distorting sine1 with distL and distR (this could also be inBuf[i] isntead of sine)
+      // distorting sine1 with distL and distR (this could also be inBuf[i] instead of sine)
       outBufL[i] = (distL.getSample((sine1.getSample() * driveL))) / driveL;
       outBufR[i] = (distR.getSample((sine1.getSample() * driveR))) / driveR;
 
@@ -119,12 +116,8 @@ int main(int argc,char **argv)
 
   jack.autoConnect();
 
-  //keep the program running and listen for user input, q = quit
+  //keep the program running, q = quit
   cout << "\n\nPress 'q' when you want to quit the program.\n";
-  cout << "Press 'r' to change the right lfo speed.\n";
-  cout << "Press 'l' to change the left lfo speed.\n";
-  cout << "Press 'd' to change the lfo depth.\n";
-  cout << "Press 'a' to change the drive amount/lfo offset.\n";
   bool running = true;
   while (running)
   {
@@ -134,25 +127,8 @@ int main(int argc,char **argv)
         running = false;
         jack.end();
         break;
-      case 'r':
-        float newlfoSpeedR;
-        cin >> newlfoSpeedR;
-        lfoR.setFrequency(newlfoSpeedR);
-        break;
-      case 'l':
-        float newlfoSpeedL;
-        cin >> newlfoSpeedL;
-        lfoL.setFrequency(newlfoSpeedL);
-        break;
-      case 'd':
-        cin >> lfoDepth;
-        break;
-      case 'a':
-        cin >> driveAmount;
-        break;
     }
   }
-
   //end the program
   return 0;
 } // main()
