@@ -43,8 +43,8 @@ int main(int argc,char **argv)
   jack.init(argv[0]);
   double samplerate = jack.getSamplerate();
 
-  // Flanger(samplerate,feedback,lfoFreq,lfoDepth,drywetmix)
-  Flanger flanger1(samplerate, 80, 0.1, 50, 90);
+  // Flanger(samplerate,feedback,lfoFreq,lfoDepth)
+  Flanger flanger(samplerate, 80, 1, 50);
 
 
   //assign a function to the JackModule::onProces
@@ -57,7 +57,8 @@ int main(int argc,char **argv)
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
 
-      //variables received over OSC
+      float flanged_input = flanger.getSample(inBuf[i]);
+
       lfoR.setFrequency(2);
       lfoL.setFrequency(1);
 
@@ -68,8 +69,9 @@ int main(int argc,char **argv)
       float driveR = ((lfoR.getSample() * 10) + 1);
 
       // distorting sine1 with distL and distR (this could also be inBuf[i] instead of sine)
-      outBufL[i] = (distL.getSample((sine1.getSample() * driveL))) / driveL;
-      outBufR[i] = (distR.getSample((sine1.getSample() * driveR))) / driveR;
+      outBufL[i] = distL.getSample((flanged_input * driveL)) / driveL;
+      outBufR[i] = distR.getSample((flanged_input * driveR)) / driveR;
+
 
     }
     return 0;
