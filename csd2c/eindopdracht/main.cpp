@@ -57,15 +57,20 @@ int main(int argc,char **argv)
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
 
+      // "flanging"  the input buffer"
       float flanged_input = flanger.getSample(inBuf[i]);
 
-      // parameters to be controlled byb audio input
-      flanger.setFeedback(80);
-      flanger.setLfoFreq(0.1);
-      flanger.setLfoDepth(50);
-      lfoR.setFrequency(2);
-      lfoL.setFrequency(1);
-      float lfoDepth = 10;
+      // converting the input buffer from -1/1 0/1
+      float mic_in = inBuf[i];
+      float mic_abs = abs(mic_in);
+
+      // parameters to be controlled by audio input
+      flanger.setFeedback((mic_abs * 100) -20);
+      flanger.setLfoFreq((mic_abs * 100) + 10);
+      flanger.setLfoDepth((mic_abs * 100) + 20);
+      lfoR.setFrequency((mic_abs * 8) + 3);
+      lfoL.setFrequency((mic_abs * 10) + 2);
+      float lfoDepth = (9);
 
       // left channel drive with lfo modulation
       float driveL = ((lfoL.getSample() * lfoDepth) + 1);
@@ -73,7 +78,7 @@ int main(int argc,char **argv)
       //right channel drive with lfo modulation
       float driveR = ((lfoR.getSample() * lfoDepth) + 1);
 
-      // distorting sine1 with distL and distR (this could also be inBuf[i] instead of sine)
+      // distorting the "flanged_input" with distL and distR
       outBufL[i] = (distL.getSample((flanged_input * driveL)) / driveL);
       outBufR[i] = (distR.getSample((flanged_input * driveR)) / driveR);
 
