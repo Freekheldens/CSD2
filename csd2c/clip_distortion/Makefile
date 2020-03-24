@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -I/usr/local/include -Wall -std=c++1z
+CFLAGS = -I/usr/local/include -Wall -std=c++17
 LDFLAGS= -ljack -Wall
 
 all: example
