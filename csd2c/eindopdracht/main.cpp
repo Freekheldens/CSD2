@@ -46,6 +46,20 @@ int main(int argc,char **argv)
   // Flanger(samplerate,feedback,lfoFreq,lfoDepth)
   Flanger flanger(samplerate, 80, 1, 50);
 
+  // variables for the scaling of the input to parameters
+  int flang_fdbck_scale = 100;
+  int flang_fdbck_offset = 20;
+  int flang_lfoFreq_scale = 1;
+  int flang_lfoFreq_offset = 0;
+  int flang_lfoDepth_scale = 80;
+  int flang_lfoDepth_offset = 20;
+
+  int dist_lfoR_scale = 8;
+  int dist_lfoR_offset = 3;
+  int dist_lfoL_scale = 10;
+  int dist_lfoL_offset = 2;
+  int dist_lfoDepth_scale = 20;
+  int dist_lfoDepth_offset = 5;
 
   //assign a function to the JackModule::onProces
   jack.onProcess = [&](jack_default_audio_sample_t *inBuf,
@@ -65,12 +79,13 @@ int main(int argc,char **argv)
       float mic_abs = abs(mic_in);
 
       // parameters to be controlled by audio input
-      flanger.setFeedback((mic_abs * 100) -20);
-      flanger.setLfoFreq((mic_abs * 100) + 10);
-      flanger.setLfoDepth((mic_abs * 100) + 20);
-      lfoR.setFrequency((mic_abs * 8) + 3);
-      lfoL.setFrequency((mic_abs * 10) + 2);
-      float lfoDepth = (9);
+      flanger.setFeedback((mic_abs * flang_fdbck_scale) - flang_fdbck_offset);
+      flanger.setLfoFreq((mic_abs * flang_lfoFreq_scale) + flang_lfoFreq_offset);
+      flanger.setLfoDepth((mic_abs * flang_lfoDepth_scale) + flang_lfoDepth_offset);
+
+      lfoR.setFrequency((mic_abs * dist_lfoR_scale) + dist_lfoR_offset);
+      lfoL.setFrequency((mic_abs * dist_lfoL_scale) + dist_lfoL_offset);
+      float lfoDepth = ((mic_abs * dist_lfoDepth_scale) + dist_lfoDepth_offset);
 
       // left channel drive with lfo modulation
       float driveL = ((lfoL.getSample() * lfoDepth) + 1);
@@ -88,19 +103,55 @@ int main(int argc,char **argv)
 
   jack.autoConnect();
 
-  //keep the program running, q = quit
-  cout << "\n\nPress 'q' when you want to quit the program.\n";
+  //keep the program running and listen for user input, q = quit
+  std::cout << "\n\nPress 'q' to quit.\n";
+  std::cout << "Press '1' for normal mode.\n";
+  std::cout << "Press '2' for crazy mode.\n";
   bool running = true;
   while (running)
   {
     switch (std::cin.get())
     {
+      // user input for quiting and changing settings
       case 'q':
         running = false;
         jack.end();
         break;
+      // normal mode
+      case '1':
+        flang_fdbck_scale = 100;
+        flang_fdbck_offset = 20;
+        flang_lfoFreq_scale = 1;
+        flang_lfoFreq_offset = 0;
+        flang_lfoDepth_scale = 80;
+        flang_lfoDepth_offset = 20;
+
+        dist_lfoR_scale = 8;
+        dist_lfoR_offset = 3;
+        dist_lfoL_scale = 10;
+        dist_lfoL_offset = 2;
+        dist_lfoDepth_scale = 20;
+        dist_lfoDepth_offset = 5;
+        break;
+      // crazy mode
+      case '2':
+        flang_fdbck_scale = 100;
+        flang_fdbck_offset = 10;
+        flang_lfoFreq_scale = 200;
+        flang_lfoFreq_offset = 20;
+        flang_lfoDepth_scale = 200;
+        flang_lfoDepth_offset = 20;
+
+        dist_lfoR_scale = 20;
+        dist_lfoR_offset = 3;
+        dist_lfoL_scale = 23;
+        dist_lfoL_offset = 2;
+        dist_lfoDepth_scale = 30;
+        dist_lfoDepth_offset = 5;
+        break;
     }
   }
+
   //end the program
   return 0;
 } // main()
