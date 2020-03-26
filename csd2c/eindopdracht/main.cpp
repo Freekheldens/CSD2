@@ -23,10 +23,6 @@ using namespace std;
 
 int main(int argc,char **argv)
 {
-  // sine wave to be modulated by distortion
-  Sine sine1;
-  sine1.setAmplitude(1);
-  sine1.setFrequency(110);
 
   // distortions for both audio channels
   Distortion distL;
@@ -66,8 +62,8 @@ int main(int argc,char **argv)
      jack_default_audio_sample_t *outBufL, jack_default_audio_sample_t *outBufR, jack_nframes_t nframes) {
 
     for(unsigned int i = 0; i < nframes; i++) {
-      // ticking sine and lfo's
-      sine1.tick(samplerate);
+      // ticking lfo's
+
       lfoL.tick(samplerate);
       lfoR.tick(samplerate);
 
