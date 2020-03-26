@@ -3,7 +3,6 @@
 #include "math.h"
 
 #include "jack_module.h"
-#include "sine.h"
 #include "lfo_sine.h"
 #include "distortion.h"
 #include "circBuffer.h"
