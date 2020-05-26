@@ -1,55 +1,112 @@
-var song;
+var pieces;
+var radius;
+
+var fft;
 var amp;
+var vol;
 
-var x_draw = 350;
-var y_draw = 200;
+var mapMouseX;
+var mapMouseY;
 
-var add_ampx = 1;
-var add_ampy = 1;
+var audio;
 
-var amp_history = [];
+var bass;
+var mid;
+var treble;
 
-function mousePressed() {
-  if (song.isPlaying()) {
-    song.pause();
-  } else {
-    song.play();
-  }
-}
+var mapBass;
+var scaleBass;
+
+var mapMid;
+var scaleMid;
+
+var mapTreble;
+var scaleTreble;
+
 
 function preload() {
-  song = loadSound('Side-A.mp3');
+	audio = loadSound("Side-A.mp3");
 }
 
 function setup() {
-  createCanvas(700, 400);
-  frameRate(30);
-  amp = new p5.Amplitude();
+	createCanvas(windowWidth, windowHeight);
+	fft = new p5.FFT();
+	amp = new p5.Amplitude();
 }
 
 function draw() {
-  background(30);
-  if (song.isPlaying()) {
-    var vol = amp.getLevel();
-    amp_history.push(vol);
-    for (var i = 0; i < amp_history.length; i++ ){
-      strokeWeight(5);
+	background(0);
 
-      // color with fft
-      // i%255
-      stroke(vol * 150);
-      point(x_draw += add_ampx, y_draw += add_ampy);
+	if (audio.isPlaying()) {
 
-      if (x_draw > width) {
-        add_ampx = -1;
-      } else if (x_draw < 0) {
-        add_ampx = 1;
-      }
-      if (y_draw > height) {
-        add_ampy = -1;
-      } else if (y_draw < 0) {
-        add_ampy = 1;
-      }
-    }
+		fft.analyze();
+		vol = amp.getLevel();
+
+		bass = fft.getEnergy("bass");
+		mid = fft.getEnergy("mid");
+		treble = fft.getEnergy("treble");
+
+		mapBass = map(bass, 0, 255, -radius, radius);
+		scaleBass = map(bass, 0, 255, 0, 0.5);
+
+		mapMid = map(mid, 0, 255, -radius, radius);
+		scaleMid = map(mid, 0, 255, 1, 1.5);
+
+		mapTreble = map(treble, 0, 255, -radius, radius);
+		scaleTreble = map(treble, 0, 255, 1, 1.5);
+
+		mapMouseX = map(mouseX, 0, width, 1, 8);
+		mapMouseY = map(mouseY, 0, height, 0, windowHeight);
+
+		pieces = mapMouseX;
+		radius = mapMouseY;
+
+		translate(windowWidth / 2, windowHeight / 2);
+
+		for (i = 0; i < pieces; i += 1) {
+
+			rotate(TWO_PI / pieces);
+
+
+			// bass
+			push();
+			strokeWeight(5);
+			stroke(bass);
+			scale(scaleBass);
+			line(mapBass, radius / 2, radius, radius);
+			line(-mapBass, -radius / 2, radius, radius);
+			pop();
+
+			// mid
+			push();
+			strokeWeight(1);
+			stroke(mid);
+			scale(scaleMid);
+			line(mapMid, radius / 2, radius, radius);
+			line(-mapMid, -radius / 2, radius, radius);
+			pop();
+
+			// treble
+			push();
+			strokeWeight(0.5)
+			stroke(vol*255);
+			scale(scaleTreble);
+			line(mapTreble, radius / 2, radius, radius);
+			line(-mapTreble, -radius / 2, radius, radius);
+			pop();
+
+		}
+	}
+}
+
+function mousePressed() {
+  if (audio.isPlaying()) {
+    audio.pause();
+  } else {
+    audio.play();
   }
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
