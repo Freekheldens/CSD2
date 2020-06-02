@@ -28,9 +28,9 @@ Andere effecten naast distortion en Flanger. Hierbij kan je bijvoorbeeld denken 
 
 # Systeem waardes
 
-*Flanger LFO Freq value	= Normal Mode = 0 tot 1, Crazy Mode = 20 tot 220 (Hz)
-*Flanger Mod Depth	= Normal Mode = 20 tot 100, Crazy Mode = 20 tot 220 (Hz)
-*Flanger Feedback	= Normal Mode = 0 tot 80, Crazy Mode = 0 tot 90
-*Distortion LFO Right 	=  Normal Mode = 3 tot 8, Crazy Mode = 3 tot 20 (Hz)
-*Distortion LFO Left  	=  Normal Mode = 2 tot 10, Crazy Mode = 2 tot 23	 (Hz)
-*Distortion LFO Depth	=  Normal Mode = 5 tot 20, Crazy Mode = 5 tot 30
+* Flanger LFO Freq value	= Normal Mode = 0 tot 1, Crazy Mode = 20 tot 220 (Hz)
+* Flanger Mod Depth	= Normal Mode = 20 tot 100, Crazy Mode = 20 tot 220 (Hz)
+* Flanger Feedback	= Normal Mode = 0 tot 80, Crazy Mode = 0 tot 90
+* Distortion LFO Right 	=  Normal Mode = 3 tot 8, Crazy Mode = 3 tot 20 (Hz)
+* Distortion LFO Left  	=  Normal Mode = 2 tot 10, Crazy Mode = 2 tot 23	 (Hz)
+* Distortion LFO Depth	=  Normal Mode = 5 tot 20, Crazy Mode = 5 tot 30
