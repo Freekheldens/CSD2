@@ -11,25 +11,35 @@ De applicatie heeft 2 standen, de “Normal Mode” is wat meer subtiel voor mee
 Deze applicatie kan worden gebruikt voor een live-performance of in de studio bij het opnemen.
 
 __Must Have__
+
 Het systeem bestaat uit audio input van een instrument (in ons geval een synthesizer), waarbij de effecten Distortion en Flanger de klank veranderen. De amplitude van de audio input is de aansturing voor de effecten.
 
 __Should Have__
+
 In dit systeem wordt volume/velocity als vorm van muzikale expressiviteit gebruikt als aansturing. Het zou interessant zijn om ook toonduur of spectrale variaties toe te voegen als parameter. Kalibratie van het systeem.
 
 __Could Have__
+
 Het systeem zou een gui kunnen hebben, zodat de performer de effecten zelf naar smaak kan verzwakken of versterken.
 
 __Won’t Have__
+
 Andere effecten naast distortion en Flanger. Hierbij kan je bijvoorbeeld denken aan reverb en bijbehorende parameters.
 
 # Systeem waardes
 
 Audio Input Amp waarde = -1 tot 1
 
+
 Flanger LFO Freq value	= Normal Mode = 0 tot 1, Crazy Mode = 20 tot 220 (Hz)
+
 Flanger Mod Depth	= Normal Mode = 20 tot 100, Crazy Mode = 20 tot 220 (Hz)
+
 Flanger Feedback	= Normal Mode = 0 tot 80, Crazy Mode = 0 tot 90
 
+
 Distortion LFO Right 	=  Normal Mode = 3 tot 8, Crazy Mode = 3 tot 20 (Hz)
+
 Distortion LFO Left  	=  Normal Mode = 2 tot 10, Crazy Mode = 2 tot 23	 (Hz)
+
 Distortion LFO Depth	=  Normal Mode = 5 tot 20, Crazy Mode = 5 tot 30
