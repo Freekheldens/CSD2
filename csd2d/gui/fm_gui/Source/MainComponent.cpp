@@ -11,9 +11,10 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-    setSize (800, 600);
+    setSize (900, 600);
     addAndMakeVisible(envelope1);
     addAndMakeVisible(envelope2);
+    
 }
 
 MainComponent::~MainComponent()
@@ -28,10 +29,7 @@ void MainComponent::paint (Graphics& g)
 
 void MainComponent::resized()
 {
-    // This is called when the MainComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.
-    
+    // setting placment for the envelopes
     envelope1.setBounds(0, 0, 400, 400);
     envelope2.setBounds(400, 0, 400, 400);
 }

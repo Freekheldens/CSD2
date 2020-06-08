@@ -27,6 +27,7 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EnvelopeComponent)
     
+    // parameters and labels for ADSR envelope
     Slider attack;
     Label attackLabel;
     
