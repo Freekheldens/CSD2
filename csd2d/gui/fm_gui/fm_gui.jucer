@@ -3,6 +3,7 @@
 <JUCERPROJECT id="YBCz21" name="fm_gui" projectType="guiapp" jucerVersion="5.4.7">
   <MAINGROUP id="uOhcYP" name="fm_gui">
     <GROUP id="{9E75C187-58DD-DC38-CAA3-8AF84380E4B1}" name="Source">
+      <FILE id="JPcNPz" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="fZWy9j" name="EnvelopeComponent.cpp" compile="1" resource="0"
             file="Source/EnvelopeComponent.cpp"/>
       <FILE id="bFxqrv" name="EnvelopeComponent.h" compile="0" resource="0"
@@ -10,7 +11,6 @@
       <FILE id="PnL70Y" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="WdE5XJ" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
-      <FILE id="JPcNPz" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

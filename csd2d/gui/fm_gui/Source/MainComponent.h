@@ -34,5 +34,17 @@ private:
     //creating 2 instances of EnvelopeComponent
     EnvelopeComponent envelope1;
     EnvelopeComponent envelope2;
+    
+    
+    Slider ratio;
+    Label ratioLabel;
 
+    Slider depth;
+    Label depthLabel;
+    
+    Slider lfo1;
+    Label lfo1Label;
+    
+    Slider lfo2;
+    Label lfo2Label;
 };

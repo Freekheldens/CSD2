@@ -20,36 +20,36 @@ EnvelopeComponent::EnvelopeComponent()
     attack.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(attack);
     
-    addAndMakeVisible(attackLabel);
     attackLabel.setText ("Attack", dontSendNotification);
     attackLabel.attachToComponent (&attack, false);
+    addAndMakeVisible(attackLabel);
 
     decay.setRange(0, 100);
     decay.setSliderStyle(Slider::SliderStyle::LinearVertical);
     decay.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(decay);
     
-    addAndMakeVisible(decayLabel);
     decayLabel.setText ("Decay", dontSendNotification);
     decayLabel.attachToComponent (&decay, false);
+    addAndMakeVisible(decayLabel);
     
     sustain.setRange(0, 1);
     sustain.setSliderStyle(Slider::SliderStyle::LinearVertical);
     sustain.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(sustain);
 
-    addAndMakeVisible(sustainLabel);
     sustainLabel.setText ("Sustain", dontSendNotification);
     sustainLabel.attachToComponent (&sustain, false);
+    addAndMakeVisible(sustainLabel);
 
     release.setRange(0, 100);
     release.setSliderStyle(Slider::SliderStyle::LinearVertical);
     release.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(release);
 
-    addAndMakeVisible(releaseLabel);
     releaseLabel.setText ("Release", dontSendNotification);
     releaseLabel.attachToComponent (&release, false);
+    addAndMakeVisible(releaseLabel);
 }
 
 EnvelopeComponent::~EnvelopeComponent()
