@@ -14,7 +14,7 @@
 //==============================================================================
 PresetComponent::PresetComponent()
 {
-    
+    // making all the parameters and labels needed for the preset menu GUI
     addAndMakeVisible(presetMenu);
     
     presetLabel.setText("Presets:", dontSendNotification);
@@ -33,11 +33,10 @@ PresetComponent::~PresetComponent()
 
 void PresetComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
-
 }
 
 void PresetComponent::resized()
 {
-   presetMenu.setBounds(0, 20, 100, 20);
+    // making a layout for the preset menu
+    presetMenu.setBounds(0, 20, 100, 20);
 }

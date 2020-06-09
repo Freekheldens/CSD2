@@ -27,6 +27,7 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FmComponent)
 
+    // parameters and labels for fmControls
     Slider ratio;
     Label ratioLabel;
 

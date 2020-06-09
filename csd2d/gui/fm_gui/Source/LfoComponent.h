@@ -27,6 +27,7 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LfoComponent)
     
+    // parameters and labels for lfoControl
     Slider lfo1;
     Label lfo1Label;
     

@@ -54,16 +54,15 @@ EnvelopeComponent::EnvelopeComponent()
 
 EnvelopeComponent::~EnvelopeComponent()
 {
-    
 }
 
 void EnvelopeComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void EnvelopeComponent::resized()
 {
+    // making a layout for the sldiders
     attack.setBounds(0, 20, 50, 200);
     decay.setBounds(50, 20, 50, 200);
     sustain.setBounds(100, 20, 50, 200);

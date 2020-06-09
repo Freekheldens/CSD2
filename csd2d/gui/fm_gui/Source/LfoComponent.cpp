@@ -14,7 +14,7 @@
 //==============================================================================
 LfoComponent::LfoComponent()
 {
-    
+    // making all the parameters and labels needed for the lfoControls GUI
     lfo1.setRange(0, 100, 1);
     lfo1.setSliderStyle(Slider::SliderStyle::Rotary);
     lfo1.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
@@ -41,13 +41,12 @@ LfoComponent::~LfoComponent()
 
 void LfoComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void LfoComponent::resized()
 {
-    
+    // making layout for the rotary's
     lfo1.setBounds(100, 30, 90, 90);
-    lfo2.setBounds(480, 30, 90, 90);
+    lfo2.setBounds(500, 30, 90, 90);
 
 }

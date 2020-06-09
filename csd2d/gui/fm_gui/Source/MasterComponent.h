@@ -27,6 +27,7 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MasterComponent)
     
+    // parameters and labels for masterVol
     Slider masterVol;
     Label masterVolLabel;
 };

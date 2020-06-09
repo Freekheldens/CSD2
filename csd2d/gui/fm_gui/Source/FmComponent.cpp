@@ -14,7 +14,7 @@
 //==============================================================================
 FmComponent::FmComponent()
 {
-    
+    // making all the parameters and labels needed for the fmControls GUI
     ratio.setRange(0, 100, 1);
     ratio.setSliderStyle(Slider::SliderStyle::Rotary);
     ratio.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
@@ -40,12 +40,11 @@ FmComponent::~FmComponent()
 
 void FmComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void FmComponent::resized()
 {
-    
+    // making a layout for the rotary's
     ratio.setBounds(0, 20, 80, 80);
     depth.setBounds(0, 140, 80, 80);
 

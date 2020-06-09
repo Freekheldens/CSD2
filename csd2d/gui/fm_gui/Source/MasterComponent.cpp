@@ -14,7 +14,7 @@
 //==============================================================================
 MasterComponent::MasterComponent()
 {
-    
+    // making all the parameters and labels for the master slider
     masterVol.setRange(0, 100, 1);
     masterVol.setSliderStyle(Slider::SliderStyle::LinearHorizontal);
     masterVol.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
@@ -31,8 +31,6 @@ MasterComponent::~MasterComponent()
 
 void MasterComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
-
 }
 
 void MasterComponent::resized()

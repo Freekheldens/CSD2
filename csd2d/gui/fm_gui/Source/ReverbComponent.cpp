@@ -14,7 +14,7 @@
 //==============================================================================
 ReverbComponent::ReverbComponent()
 {
-    // making all the parameters needed for reverb control GUI
+    // making all the parameters and labels needed for reverb control GUI
     reverbVol.setRange(0, 100, 1);
     reverbVol.setSliderStyle(Slider::SliderStyle::LinearVertical);
     reverbVol.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
@@ -68,12 +68,11 @@ ReverbComponent::~ReverbComponent()
 
 void ReverbComponent::paint (Graphics& g)
 {
-    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void ReverbComponent::resized()
 {
-    
+    // making a layout for all the rotary's and slider
     reverbVol.setBounds(100, 20, 100, 150);
     revSize.setBounds(0, 20, 60, 60);
     revTime.setBounds(50, 20, 60, 60);
