@@ -109,9 +109,9 @@ De library die ik gekozen heb voor mijn prototype is JUCE (C++). Dit met als red
 Dit was de eerste keer dat ik met JUCE heb gewerkt dus het was in het begin even stoeien met hoe alles werkt.
 Maar ik ben blij met het eindresultaat van het prototype. Echter zitten er helaas niet alle features in die ik had bedacht voor de mockup (dit omdat er maar 1 week tijd voor was), maar de basis staat wel. Wat er helaas niet in zit is de “tabbladen” functie voor extra voices, de LED lampjes bij de envelope, het midi keyboard onderin en de looks van de parameters zijn wat anders dan bij de mockup. Dit zouden ook de eerste dingen zijn die ik er aan toevoeg als ik dit project weer zou oppakken en er mee verder zou gaan.
 
-De code voor de GUI is ook volgens OOP richtlijnen gemaakt, dit vond ik zelf ook een fijne manier van werken.
-
 Ik heb bijvoorbeeld een ADSR envelope in een aparte component gemaakt met 4 sliders en de verhouding, locatie en grootte van de sliders bepaald in de component. En daarna kun je dus zoveel ADSR envelope’s aanmaken in je main component als je maar wil. Zo kun je ook deze gehele “GUI module” compleet verplaatsen binnen je applicatie. En dit heb ik gedaan voor alle onderdelen van de synthesizer.
+
+De code voor de GUI is ook volgens OOP richtlijnen gemaakt, dit vond ik zelf ook een fijne manier van werken.
 
 **Code**
 
