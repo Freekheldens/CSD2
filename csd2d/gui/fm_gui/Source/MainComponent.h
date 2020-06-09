@@ -47,4 +47,26 @@ private:
     
     Slider lfo2;
     Label lfo2Label;
+    
+    ComboBox presetMenu;
+    Label presetLabel;
+    
+    Slider reverbVol;
+    Label reverbVolLabel;
+    
+    Slider revSize;
+    Label revSizeLabel;
+    
+    Slider revTime;
+    Label revTimeLabel;
+    
+    Slider revDamp;
+    Label revDampLabel;
+    
+    Slider revDiff;
+    Label revDiffLabel;
+    
+    Slider masterVol;
+    Label masterVolLabel;
+    
 };
