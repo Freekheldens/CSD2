@@ -47,6 +47,6 @@ void FmComponent::resized()
 {
     
     ratio.setBounds(0, 20, 80, 80);
-    depth.setBounds(0, 120, 80, 80);
+    depth.setBounds(0, 140, 80, 80);
 
 }

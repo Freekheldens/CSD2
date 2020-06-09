@@ -47,7 +47,7 @@ void LfoComponent::paint (Graphics& g)
 void LfoComponent::resized()
 {
     
-    lfo1.setBounds(100, 0, 90, 90);
-    lfo2.setBounds(480, 0, 90, 90);
+    lfo1.setBounds(100, 30, 90, 90);
+    lfo2.setBounds(480, 30, 90, 90);
 
 }

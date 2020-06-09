@@ -15,7 +15,7 @@
 ReverbComponent::ReverbComponent()
 {
     // making all the parameters needed for reverb control GUI
-    reverbVol.setRange(0, 100);
+    reverbVol.setRange(0, 100, 1);
     reverbVol.setSliderStyle(Slider::SliderStyle::LinearVertical);
     reverbVol.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(reverbVol);
@@ -24,7 +24,7 @@ ReverbComponent::ReverbComponent()
     reverbVolLabel.attachToComponent (&reverbVol, false);
     addAndMakeVisible(reverbVolLabel);
 
-    revSize.setRange(0, 100);
+    revSize.setRange(0, 100, 1);
     revSize.setSliderStyle(Slider::SliderStyle::Rotary);
     revSize.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(revSize);
@@ -33,7 +33,7 @@ ReverbComponent::ReverbComponent()
     revSizeLabel.attachToComponent (&revSize, false);
     addAndMakeVisible(revSizeLabel);
     
-    revTime.setRange(0, 100);
+    revTime.setRange(0, 100, 1);
     revTime.setSliderStyle(Slider::SliderStyle::Rotary);
     revTime.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(revTime);
@@ -42,7 +42,7 @@ ReverbComponent::ReverbComponent()
     revTimeLabel.attachToComponent (&revTime, false);
     addAndMakeVisible(revTimeLabel);
 
-    revDamp.setRange(0, 100);
+    revDamp.setRange(0, 100, 1);
     revDamp.setSliderStyle(Slider::SliderStyle::Rotary);
     revDamp.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(revDamp);
@@ -51,7 +51,7 @@ ReverbComponent::ReverbComponent()
     revDampLabel.attachToComponent (&revDamp, false);
     addAndMakeVisible(revDampLabel);
 
-    revDiff.setRange(0, 100);
+    revDiff.setRange(0, 100, 1);
     revDiff.setSliderStyle(Slider::SliderStyle::Rotary);
     revDiff.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(revDiff);

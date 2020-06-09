@@ -15,7 +15,7 @@
 MasterComponent::MasterComponent()
 {
     
-    masterVol.setRange(0, 100);
+    masterVol.setRange(0, 100, 1);
     masterVol.setSliderStyle(Slider::SliderStyle::LinearHorizontal);
     masterVol.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(masterVol);
