@@ -8,6 +8,10 @@
             file="Source/EnvelopeComponent.cpp"/>
       <FILE id="bFxqrv" name="EnvelopeComponent.h" compile="0" resource="0"
             file="Source/EnvelopeComponent.h"/>
+      <FILE id="JF8sT1" name="ReverbComponent.cpp" compile="1" resource="0"
+            file="Source/ReverbComponent.cpp"/>
+      <FILE id="SIHaL9" name="ReverbComponent.h" compile="0" resource="0"
+            file="Source/ReverbComponent.h"/>
       <FILE id="PnL70Y" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="WdE5XJ" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>

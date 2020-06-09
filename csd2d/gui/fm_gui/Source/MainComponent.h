@@ -10,6 +10,7 @@
 
 #include <JuceHeader.h>
 #include "EnvelopeComponent.h"
+#include "ReverbComponent.h"
 
 //==============================================================================
 /*
@@ -31,11 +32,13 @@ private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
     
-    //creating 2 instances of EnvelopeComponent
+    // creating 2 instances of EnvelopeComponent
     EnvelopeComponent envelope1;
     EnvelopeComponent envelope2;
     
+    ReverbComponent reverbControls;
     
+    // creating all the other parameters and labels that dont have a seperate class
     Slider ratio;
     Label ratioLabel;
 
@@ -50,21 +53,6 @@ private:
     
     ComboBox presetMenu;
     Label presetLabel;
-    
-    Slider reverbVol;
-    Label reverbVolLabel;
-    
-    Slider revSize;
-    Label revSizeLabel;
-    
-    Slider revTime;
-    Label revTimeLabel;
-    
-    Slider revDamp;
-    Label revDampLabel;
-    
-    Slider revDiff;
-    Label revDiffLabel;
     
     Slider masterVol;
     Label masterVolLabel;

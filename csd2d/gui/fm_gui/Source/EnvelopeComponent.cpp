@@ -64,7 +64,7 @@ void EnvelopeComponent::paint (Graphics& g)
 
 void EnvelopeComponent::resized()
 {
-    // setting borders and distances of the sliders
+    // setting borders and placement of the sliders
     int border = 50;
     
     attack.setBounds(0 + border, 0 + border, 50, 200);

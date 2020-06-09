@@ -61,6 +61,10 @@
 			isa = PBXBuildFile;
 			fileRef = 4B812EE436A0DEAC66F1A6B7;
 		};
+		277C14CA1A9A9B4BE2B4688F = {
+			isa = PBXBuildFile;
+			fileRef = FB779D46A203D3E544FF0011;
+		};
 		5E0C4B442AD9E2D313F35681 = {
 			isa = PBXBuildFile;
 			fileRef = 0CEDDAB4C160838B18E6DEFC;
@@ -288,6 +292,13 @@
 			path = ../../JuceLibraryCode/JuceHeader.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		6D31FCF763B925FD594E3F0D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = ReverbComponent.h;
+			path = ../../Source/ReverbComponent.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		7549B887CAC626D6164D986D = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -421,12 +432,21 @@
 			path = "/Users/freek/Documents/JUCE/modules/juce_core";
 			sourceTree = "<absolute>";
 		};
+		FB779D46A203D3E544FF0011 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = ReverbComponent.cpp;
+			path = ../../Source/ReverbComponent.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		5E0229185369EC2399657739 = {
 			isa = PBXGroup;
 			children = (
 				79AD9E7204C2A4E4FF28F3DB,
 				4B812EE436A0DEAC66F1A6B7,
 				870454AFAC892E32271D6848,
+				FB779D46A203D3E544FF0011,
+				6D31FCF763B925FD594E3F0D,
 				A56C57D94F741713D32F499B,
 				0CEDDAB4C160838B18E6DEFC,
 			);
@@ -746,6 +766,7 @@
 			files = (
 				AD33556C06B0E3DB5C716658,
 				A4F42573A4BEDFBAF15F887B,
+				277C14CA1A9A9B4BE2B4688F,
 				5E0C4B442AD9E2D313F35681,
 				2FB12E0449CA3AFFF566C8BA,
 				0041C21461A9A7F3E1D21EB4,
