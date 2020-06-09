@@ -117,4 +117,4 @@ De code voor de GUI is ook volgens OOP richtlijnen gemaakt, dit vond ik zelf ook
 
 **Code**
 
-https://github.com/Freekheldens/CSD2/tree/master/csd2d/gui/fm_gui/Source
+https://github.com/Freekheldens/CSD2/tree/master/csd2d/gui_prototype/fm_gui/Source
