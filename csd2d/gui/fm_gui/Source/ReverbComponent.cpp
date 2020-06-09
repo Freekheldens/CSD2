@@ -74,10 +74,10 @@ void ReverbComponent::paint (Graphics& g)
 void ReverbComponent::resized()
 {
     
-    reverbVol.setBounds(100, 0, 100, 140);
-    revSize.setBounds(0, 0, 60, 60);
-    revTime.setBounds(50, 0, 60, 60);
-    revDamp.setBounds(0, 80, 60, 60);
-    revDiff.setBounds(50, 80, 60, 60);
+    reverbVol.setBounds(100, 20, 100, 150);
+    revSize.setBounds(0, 20, 60, 60);
+    revTime.setBounds(50, 20, 60, 60);
+    revDamp.setBounds(0, 110, 60, 60);
+    revDiff.setBounds(50, 110, 60, 60);
 
 }

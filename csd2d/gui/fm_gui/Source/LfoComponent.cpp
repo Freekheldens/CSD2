@@ -15,7 +15,7 @@
 LfoComponent::LfoComponent()
 {
     
-    lfo1.setRange(0, 100);
+    lfo1.setRange(0, 100, 1);
     lfo1.setSliderStyle(Slider::SliderStyle::Rotary);
     lfo1.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(lfo1);
@@ -24,7 +24,7 @@ LfoComponent::LfoComponent()
     lfo1Label.attachToComponent (&lfo1, true);
     addAndMakeVisible(lfo1Label);
     
-    lfo2.setRange(0, 100);
+    lfo2.setRange(0, 100, 1);
     lfo2.setSliderStyle(Slider::SliderStyle::Rotary);
     lfo2.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(lfo2);
@@ -48,6 +48,6 @@ void LfoComponent::resized()
 {
     
     lfo1.setBounds(100, 0, 90, 90);
-    lfo2.setBounds(470, 0, 90, 90);
+    lfo2.setBounds(480, 0, 90, 90);
 
 }

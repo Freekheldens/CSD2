@@ -15,7 +15,7 @@
 EnvelopeComponent::EnvelopeComponent()
 {
     // making all the parameters needed for an ADSR envelope GUI
-    attack.setRange(0, 100);
+    attack.setRange(0, 100, 1);
     attack.setSliderStyle(Slider::SliderStyle::LinearVertical);
     attack.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(attack);
@@ -24,7 +24,7 @@ EnvelopeComponent::EnvelopeComponent()
     attackLabel.attachToComponent (&attack, false);
     addAndMakeVisible(attackLabel);
 
-    decay.setRange(0, 100);
+    decay.setRange(0, 100, 1);
     decay.setSliderStyle(Slider::SliderStyle::LinearVertical);
     decay.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(decay);
@@ -42,7 +42,7 @@ EnvelopeComponent::EnvelopeComponent()
     sustainLabel.attachToComponent (&sustain, false);
     addAndMakeVisible(sustainLabel);
 
-    release.setRange(0, 100);
+    release.setRange(0, 100, 1);
     release.setSliderStyle(Slider::SliderStyle::LinearVertical);
     release.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(release);

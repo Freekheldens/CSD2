@@ -37,5 +37,5 @@ void MasterComponent::paint (Graphics& g)
 
 void MasterComponent::resized()
 {
-    masterVol.setBounds(0, 50, 160, 50);
+    masterVol.setBounds(0, 20, 160, 50);
 }

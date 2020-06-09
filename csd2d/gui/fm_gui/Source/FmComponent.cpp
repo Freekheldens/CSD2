@@ -15,7 +15,7 @@
 FmComponent::FmComponent()
 {
     
-    ratio.setRange(0, 100);
+    ratio.setRange(0, 100, 1);
     ratio.setSliderStyle(Slider::SliderStyle::Rotary);
     ratio.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(ratio);
@@ -24,7 +24,7 @@ FmComponent::FmComponent()
     ratioLabel.attachToComponent (&ratio, false);
     addAndMakeVisible(ratioLabel);
     
-    depth.setRange(0, 100);
+    depth.setRange(0, 100, 1);
     depth.setSliderStyle(Slider::SliderStyle::Rotary);
     depth.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
     addAndMakeVisible(depth);
@@ -46,7 +46,7 @@ void FmComponent::paint (Graphics& g)
 void FmComponent::resized()
 {
     
-    ratio.setBounds(0, 0, 80, 80);
+    ratio.setBounds(0, 20, 80, 80);
     depth.setBounds(0, 120, 80, 80);
 
 }

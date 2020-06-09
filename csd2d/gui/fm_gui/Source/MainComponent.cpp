@@ -47,11 +47,11 @@ void MainComponent::paint (Graphics& g)
 void MainComponent::resized()
 {
     // setting placment for all the GUI's
-    envelope1Gui.setBounds(50, 80, 200, 200);
-    envelope2Gui.setBounds(420, 80, 200, 200);
-    fmGui.setBounds(280, 100, 90, 250);
-    lfoGui.setBounds(30, 300, 600, 120);
-    presetGui.setBounds(700, 100, 100, 20);
-    reverbGui.setBounds(700, 180, 200, 150);
-    masterGui.setBounds(700, 300, 200, 200);
+    envelope1Gui.setBounds(50, 80, 200, 220);
+    envelope2Gui.setBounds(430, 80, 200, 220);
+    fmGui.setBounds(280, 80, 90, 200);
+    lfoGui.setBounds(50, 300, 580, 110);
+    presetGui.setBounds(700, 80, 100, 40);
+    reverbGui.setBounds(700, 170, 200, 170);
+    masterGui.setBounds(700, 350, 160, 70);
 }

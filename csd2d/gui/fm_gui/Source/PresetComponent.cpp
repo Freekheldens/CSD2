@@ -39,5 +39,5 @@ void PresetComponent::paint (Graphics& g)
 
 void PresetComponent::resized()
 {
-   presetMenu.setBounds(0, 0, 100, 20);
+   presetMenu.setBounds(0, 20, 100, 20);
 }
