@@ -1,6 +1,6 @@
 # GUI Prototype Assignment
 
-# Onderzoek eigen GUI
+## Onderzoek eigen GUI
 
 __FM Synthesizer - Gemaakt in MAX MSP__
 
@@ -74,7 +74,7 @@ Wat leuk is aan deze GUI is dat het een uniforme uitstraling heeft, de kleuren z
 Wat ook interessant is aan deze GUI is de realtime audio out in de gain sliders, zoals ik al eerder heb omschreven is dit handig met troubleshooting en het ziet er ook goed uit.
 
 
-# Grafische mockup
+## Grafische mockup
 
 __Mockup - gemaakt in Adobe XD__
 
@@ -97,7 +97,7 @@ Zoals je ziet is het klavier ook aan de onderkant geplaatst en de presets hebben
 Verder heb ik de synthesizer redelijk minimalistisch proberen te houden wat betreft kleur en tekst. Niet teveel kleuren door elkaar heen, en ook niet te veel tekst over de gehele synthesizer. Dit is van de ene kant een kwestie van smaak maar ook van de andere kant een kwestie van overzichtelijkheid.
 
 
-# Prototype
+## Prototype
 
 ![](images/Prototype.png)
 
