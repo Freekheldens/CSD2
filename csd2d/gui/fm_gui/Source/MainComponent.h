@@ -11,6 +11,10 @@
 #include <JuceHeader.h>
 #include "EnvelopeComponent.h"
 #include "ReverbComponent.h"
+#include "LfoComponent.h"
+#include "FmComponent.h"
+#include "PresetComponent.h"
+#include "MasterComponent.h"
 
 //==============================================================================
 /*
@@ -32,29 +36,13 @@ private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
     
-    // creating 2 instances of EnvelopeComponent
-    EnvelopeComponent envelope1;
-    EnvelopeComponent envelope2;
-    
-    ReverbComponent reverbControls;
-    
-    // creating all the other parameters and labels that dont have a seperate class
-    Slider ratio;
-    Label ratioLabel;
-
-    Slider depth;
-    Label depthLabel;
-    
-    Slider lfo1;
-    Label lfo1Label;
-    
-    Slider lfo2;
-    Label lfo2Label;
-    
-    ComboBox presetMenu;
-    Label presetLabel;
-    
-    Slider masterVol;
-    Label masterVolLabel;
+    // creating instances for all GUI's
+    EnvelopeComponent envelope1Gui;
+    EnvelopeComponent envelope2Gui;
+    ReverbComponent reverbGui;
+    LfoComponent lfoGui;
+    FmComponent fmGui;
+    PresetComponent presetGui;
+    MasterComponent masterGui;
     
 };

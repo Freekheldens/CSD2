@@ -59,16 +59,13 @@ EnvelopeComponent::~EnvelopeComponent()
 
 void EnvelopeComponent::paint (Graphics& g)
 {
-
+    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void EnvelopeComponent::resized()
 {
-    // setting borders and placement of the sliders
-    int border = 50;
-    
-    attack.setBounds(0 + border, 0 + border, 50, 200);
-    decay.setBounds(50 + border, 0 + border, 50, 200);
-    sustain.setBounds(100 + border, 0 + border, 50, 200);
-    release.setBounds(150 + border, 0 + border, 50, 200);
+    attack.setBounds(0, 20, 50, 200);
+    decay.setBounds(50, 20, 50, 200);
+    sustain.setBounds(100, 20, 50, 200);
+    release.setBounds(150, 20, 50, 200);
 }

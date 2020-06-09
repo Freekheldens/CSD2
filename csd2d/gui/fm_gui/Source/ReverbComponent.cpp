@@ -68,17 +68,16 @@ ReverbComponent::~ReverbComponent()
 
 void ReverbComponent::paint (Graphics& g)
 {
+    //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
 }
 
 void ReverbComponent::resized()
 {
-    // setting borders and placement of the controls
-    const int border = 50;
     
-    reverbVol.setBounds(100 + border, 0 + border, 100, 140);
-    revSize.setBounds(0 + border, 0 + border, 60, 60);
-    revTime.setBounds(50 + border, 0 + border, 60, 60);
-    revDamp.setBounds(0 + border, 80 + border, 60, 60);
-    revDiff.setBounds(50 + border, 80 + border, 60, 60);
+    reverbVol.setBounds(100, 0, 100, 140);
+    revSize.setBounds(0, 0, 60, 60);
+    revTime.setBounds(50, 0, 60, 60);
+    revDamp.setBounds(0, 80, 60, 60);
+    revDiff.setBounds(50, 80, 60, 60);
 
 }

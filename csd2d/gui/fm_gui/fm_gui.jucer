@@ -12,6 +12,19 @@
             file="Source/ReverbComponent.cpp"/>
       <FILE id="SIHaL9" name="ReverbComponent.h" compile="0" resource="0"
             file="Source/ReverbComponent.h"/>
+      <FILE id="Lt09pD" name="LfoComponent.cpp" compile="1" resource="0"
+            file="Source/LfoComponent.cpp"/>
+      <FILE id="K4aKIw" name="LfoComponent.h" compile="0" resource="0" file="Source/LfoComponent.h"/>
+      <FILE id="ULEDxC" name="FmComponent.cpp" compile="1" resource="0" file="Source/FmComponent.cpp"/>
+      <FILE id="RBUALY" name="FmComponent.h" compile="0" resource="0" file="Source/FmComponent.h"/>
+      <FILE id="Acm4ap" name="PresetComponent.cpp" compile="1" resource="0"
+            file="Source/PresetComponent.cpp"/>
+      <FILE id="zpFylT" name="PresetComponent.h" compile="0" resource="0"
+            file="Source/PresetComponent.h"/>
+      <FILE id="zcuufI" name="MasterComponent.cpp" compile="1" resource="0"
+            file="Source/MasterComponent.cpp"/>
+      <FILE id="UsHJK5" name="MasterComponent.h" compile="0" resource="0"
+            file="Source/MasterComponent.h"/>
       <FILE id="PnL70Y" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="WdE5XJ" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
