@@ -1,4 +1,4 @@
-## GUI Prototype Assignment
+# GUI Prototype Assignment
 
 # Onderzoek eigen GUI
 
